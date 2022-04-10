@@ -1,0 +1,26 @@
+pipeline {
+    agent none
+
+    stages{
+        stage('Compile')
+        {
+            steps{
+                sh 'javac Test.java'
+            }
+        }
+
+        stage('Build')
+        {
+            steps {
+                sh 'java Test'
+            }
+        }
+
+        stage ('final')
+        {
+            steps {
+                echo "Congrats! your pipeline is successfull"
+            }
+        }
+    }
+}
